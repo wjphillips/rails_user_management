@@ -1,0 +1,9 @@
+<h1>New User Submission Recieved</h1>
+<h2>User Information:</h2>
+<ul>
+	<% @info.each do |key, value| %>
+		<li><%= key %>: <%= value %></li>
+	<% end %>
+</ul>
+
+<a href="/">Return Home</a>

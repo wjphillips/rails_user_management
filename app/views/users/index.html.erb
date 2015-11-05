@@ -1,0 +1,27 @@
+<h1>This is the users index</h1>
+<table>
+	<tr>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>E-mail Address</td>
+		<td>Password</td>
+		<td>Date Created</td>
+	</tr>
+	<% @users.each do |user|%>
+	<tr>
+		<td><%= user.first_name %></td>
+		<td><%= user.last_name %></td>
+		<td><%= user.email %></td>
+		<td><%= user.password %></td>
+		<td><%= user.created_at %></td>
+		<td><a href="/users/<%= user.id %>">Show</a></td>
+		<td><a href="/users/<%= user.id %>/edit">Edit</a></td>
+		<td>
+			<%= form_tag("/users/#{ user.id }", method: "delete") do %>
+				<%= submit_tag "Delete" %>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<a href="/users/new">New User</a>
